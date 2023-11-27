@@ -1,8 +1,8 @@
 const express = require('express');
+
 const {findAllUsers, createUsers, findOneUser, updateUser, deleteUser} = require('./users.controller')
+
 const router = express.Router();
-
-
 
 router.get('/users', findAllUsers)
 
