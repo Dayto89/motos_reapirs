@@ -1,6 +1,6 @@
-const app = require('./app');
-const { authenticated, syncUp } = require('./config/database/database');
-const {envs} = require('./config/enviroments/enviroments');
+const app = require('./app.js');
+const { authenticated, syncUp } = require('./config/database/database.js');
+const {envs} = require('./config/enviroments/enviroments.js');
 
 async function main (){
     try {

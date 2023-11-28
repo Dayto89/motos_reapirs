@@ -1,6 +1,6 @@
 const express = require('express');
 
-const {findAllUsers, createUsers, findOneUser, updateUser, deleteUser} = require('./users.controller')
+const {findAllUsers, createUsers, findOneUser, updateUser, deleteUser} = require('./users.controller.js')
 
 const router = express.Router();
 

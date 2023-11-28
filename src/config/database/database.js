@@ -1,5 +1,5 @@
 const { Sequelize } = require('sequelize');
-const { envs } = require('../enviroments/enviroments');
+const { envs } = require('../enviroments/enviroments.js');
 const sequelize = new Sequelize(envs.DB_URI, {
     logging: false
 })

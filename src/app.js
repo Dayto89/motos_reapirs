@@ -1,7 +1,7 @@
 const express = require('express');
-const users = require('./users/users.route')
-const repairs = require('./repairs/repairs.route')
-const {getRequestTime} = require('./repairs/repairs.middleware')
+const users = require('./users/users.route.js')
+const repairs = require('./repairs/repairs.route.js')
+const { getRequestTime } = require('./repairs/repairs.middleware.js')
 
 const app = express();
 
