@@ -2,7 +2,7 @@ const RepairService = require("./repair.service");
 
 const findAllRepairs = async(req, res) => {
 try{
-    const repairs = RepairService.findAll();
+    const repairs = await RepairService.findAll();
     return res.status(200).json(repairs)
 
 } catch(error) {
@@ -44,16 +44,18 @@ try{
     return res.status(200).json(repair)
 
 } catch(error) {
+
     return res.status(500).json({
         status: 'fail',
         message: 'Hubo un error... 🥺'
+       
     })
 }
 }
 
 const updateRepair = async(req, res) => {
 try{
-    const {id} = req.params
+    const {id} = req.params;
 
     const repair = await RepairService.findOne(id)
 
@@ -69,9 +71,11 @@ try{
     return res.status(200).json(repairUpdated)
 
 } catch(error) {
+    console.log(error);
     return res.status(500).json({
         status: 'fail',
-        message: 'Hubo un error... 🥺'
+        message: 'Hubo un error... 🥺',
+        error
     })
 }
 }

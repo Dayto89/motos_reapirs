@@ -96,7 +96,7 @@ const deleteUser = async(req, res) => {
     }catch (error) {
         return res.status(500).json({
             status: 'fail',
-            message: 'Hubo un error... 🥺❌'
+            message: 'Hubo un error... 🥺❌',
         })
     }
 }

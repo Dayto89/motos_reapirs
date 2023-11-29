@@ -23,11 +23,9 @@ class UserService {
     }
     static async update(user, data) {
         return await user.update(data)
-        
     }
     static async delete(user) {
         return await user.delete({status: 'disabled'})
-        
     }
 }
 

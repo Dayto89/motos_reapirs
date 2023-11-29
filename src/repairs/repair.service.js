@@ -5,7 +5,7 @@ class RepairService {
         return await Repair.findOne({
             where: {
                 id,
-                status: 'pendind'
+                status: 'pending'
             }
         })
     }
@@ -22,12 +22,12 @@ class RepairService {
         return await Repair.create(data)
     }
 
-    static async updata(repair){
-        return await Repair.update({ status: 'completed'})  
+    static async update(repair){
+        return await repair.update({ status: 'completed'})  
     }
 
     static async delete(repair){
-        return await Repair.update({ status: 'cancelled'})
+        return await repair.update({ status: 'cancelled'})
     }
 }
 
