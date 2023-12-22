@@ -1,15 +1,20 @@
-const express = require('express');
-const users = require('./users/users.route.js')
-const repairs = require('./repairs/repairs.route.js')
-const { getRequestTime } = require('./repairs/repairs.middleware.js')
+import express from "express";
+import { router } from "./routes/index.js";
+import { AppError } from "./common/errors/appError.js";
+import { globalErrorHandler } from "./common/errors/error.controller.js";
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(getRequestTime);
-app.use('/api/v1', users)
-app.use('/api/v1', repairs)
 
+//rutas
+app.use("/api/v1", router);
 
-module.exports = app;
+app.all("*", (req, res, next) => {
+  return next(new AppError(`${req.originalUrl} not found`, 404));
+});
+
+app.use(globalErrorHandler);
+
+export default app;
